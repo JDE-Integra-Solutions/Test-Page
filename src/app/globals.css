@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-ink-950: #060f26;
+  --color-ink-900: #0b1f4b;
+  --color-ink-800: #16307a;
+  --color-brand-400: #f9a3ad;
+  --color-brand-500: #ef6f82;
+  --color-brand-600: #bd3a50;
+  --color-accent-400: #8f83ff;
+  --color-accent-500: #6d5cff;
+  --color-paper: #f5f7fc;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Escala de pesos un punto más ligera (Inter es variable: admite intermedios). */
+  --font-weight-medium: 400;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 600;
+  --font-weight-extrabold: 700;
+}
+
+/* Tokens semánticos: cambian con la clase `.dark` en <html>. */
+:root {
+  color-scheme: light;
+  --surface: var(--color-paper);
+  --card: #ffffff;
+  --ink: var(--color-ink-900);
+  --muted: #475569;
+  --faint: #64748b;
+  --line: #e2e8f0;
+  --chip: #f1f5f9;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: #060f26;
+  --card: #0d2148;
+  --ink: #f1f5f9;
+  --muted: #cbd5e1;
+  --faint: #94a3b8;
+  --line: rgb(255 255 255 / 0.14);
+  --chip: rgb(255 255 255 / 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
