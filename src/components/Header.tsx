@@ -44,8 +44,13 @@ export default function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      {/* Fila superior utilitaria */}
-      <div className="border-b border-white/10">
+      {/* Fila superior utilitaria: se oculta al bajar */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          scrolled ? "max-h-0 opacity-0" : "max-h-11 opacity-100"
+        }`}
+      >
+        <div className="border-b border-white/10">
         <div className="mx-auto flex h-11 max-w-6xl items-center justify-between px-4 text-xs sm:px-6">
           <p className="font-medium tracking-wide text-slate-300">
             {site.ciudad} <span aria-hidden="true" className="mx-1 text-slate-500">|</span> ES
@@ -66,6 +71,7 @@ export default function Header() {
             </nav>
             <ThemeToggle />
           </div>
+        </div>
         </div>
       </div>
 
